@@ -16,13 +16,8 @@ jobs:
       - name: Setup Julia
         uses: julia-actions/setup-julia@v1
 
-      - name: Setup Python
-        uses: actions/setup-python@v5.0.0
-        with:
-          python-version: '3.12' 
-
       - name: Setup Jupyter
-        run: pip install jupyter
+        run: julia -e 'using Pkg; Pkg.add("Conda"); using Conda; Conda.add("jupyter")'
 
       - name: Setup IJulia
         run: julia -e 'using Pkg; Pkg.add("IJulia")'
