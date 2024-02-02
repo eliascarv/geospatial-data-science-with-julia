@@ -16,11 +16,13 @@ jobs:
       - name: Setup Julia
         uses: julia-actions/setup-julia@v1
 
-      - name: Setup Jupyter
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: pip install jupyter
+
+      - name: Setup Jupyter
+        run: pip install jupyter
 
       - name: Setup IJulia
         run: julia -e 'using Pkg; Pkg.add("IJulia")'
